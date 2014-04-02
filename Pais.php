@@ -37,3 +37,61 @@
 		public function densidadePop($p1){
 			return ($p1->populacao / $p1->dimensao);
 		}
+		
+		//f) Um método que receba um país como parâmetro e retorne a lista de vizinhos comuns aos dois países.*/
+		public function vizinhos($p1){
+			$retorno = Array();
+			foreach ($p1->fronteira as $v1){
+				foreach ($this->fronteira as $v2){
+					if($v1 == $v2){
+						$retorno[] = $v2;
+					}
+				}
+			}
+			return $retorno;
+		}
+		
+		//a) Construtor que inicialize o código ISO, o nome e a dimensão do país;
+		public function __construct($codIso, $nome, $dimensao){
+			$this->codIso = $codIso;
+			$this->nome = $nome;
+			$this->dimensao = $dimensao;
+		}
+		
+		
+		//b) Métodos de acesso (getter/setter) para as propriedades código ISO, nome, população e dimensão do país;
+		public function getCodIso(){
+			return $this->codIso;
+		}
+
+		public function setCodIso($codIso){
+			$this->codIso = $codIso;
+		}
+
+		public function getNome(){
+			return $this->nome;
+		}
+
+		public function setNome($nome){
+			$this->nome = $nome;
+		}
+
+		public function getPopulacao(){
+			return $this->populacao;
+		}
+
+		public function setPopulacao($populacao){
+			$this->populacao = $populacao;
+		}
+
+		public function getDimensao(){
+			return $this->dimensao;
+		}
+
+		public function setDimensao($dimensao){
+			$this->dimensao = $dimensao;
+		}
+	
+	}
+
+?>
